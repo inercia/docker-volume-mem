@@ -1,0 +1,12 @@
+[Unit]
+Description=Docker in-memory volumes plugin
+Documentation=https://github.com/inercia/docker-volume-mem
+Before=docker.service
+After=network.target docker-volume-mem.socket
+Requires=docker-volume-mem.socket docker.service
+
+[Service]
+ExecStart=/usr/lib/docker/docker-volume-mem
+
+[Install]
+WantedBy=multi-user.target
